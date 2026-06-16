@@ -12,7 +12,7 @@ st.write("Upload a fruit image to predict its name.")
 # ==========================================
 # 1. MODEL & CONFIGURATION
 # ==========================================
-MODEL_PATH = 'fruit_model.h5'
+MODEL_PATH = 'student_mobilenetv2_transfer_learning.keras'
 
 # Model එක හැමතිස්සෙම load වෙන එක නතර කරලා speed කරන්න cache කරනවා
 @st.cache_resource
