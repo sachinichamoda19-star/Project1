@@ -31,7 +31,7 @@ CLASS_NAMES = ['Apple', 'Banana', 'Mango', 'Orange', 'Strawberry', 'Grape', 'Pin
 def predict_fruit(img_file):
     # Image එක load කරලා model එකට ගැලපෙන size එකට සකස් කිරීම
     img = Image.open(img_file).convert('RGB')
-    img = img.resize((224, 224)) # Model එක train කරපු size එක දාන්න (e.g., 224x224)
+    img = img.resize((160, 160)) # Model එක train කරපු size එක දාන්න (e.g., 224x224)
     
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
