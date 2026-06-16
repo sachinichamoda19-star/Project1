@@ -26,7 +26,7 @@ def load_my_model():
 model = load_my_model()
 
 # ඔයාගේ Fruit Classes 10 මෙතන නිවැරදි පිළිවෙළට දාන්න
-CLASS_NAMES = ['Apple', 'Banana', 'Mango', 'Orange', 'Strawberry', 'Grape', 'Pineapple', 'Watermelon', 'Papaya', 'Avocado'] 
+CLASS_NAMES = ['apple', 'avocado', 'banana', 'cherry', 'kiwi', 'mango', 'orange', 'pineapple', 'strawberries', 'watermelon']
 
 def predict_fruit(img_file):
     # Image එක load කරලා model එකට ගැලපෙන size එකට සකස් කිරීම
