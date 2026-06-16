@@ -28,14 +28,17 @@ model = load_my_model()
 # ඔයාගේ Fruit Classes 10 මෙතන නිවැරදි පිළිවෙළට දාන්න
 CLASS_NAMES = ['apple', 'avocado', 'banana', 'cherry', 'kiwi', 'mango', 'orange', 'pineapple', 'strawberries', 'watermelon']
 
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+
 def predict_fruit(img_file):
-    # Image එක load කරලා model එකට ගැලපෙන size එකට සකස් කිරීම
     img = Image.open(img_file).convert('RGB')
-    img = img.resize((160, 160)) # Model එක train කරපු size එක දාන්න (e.g., 224x224)
+    img = img.resize((160, 160)) 
     
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
-    img_array /= 255.0  # Normalization
+    
+    # 🌟 පරණ img_array /= 255.0 මකලා මේ පේළිය දාන්න:
+    img_array = preprocess_input(img_array) 
 
     predictions = model.predict(img_array)
     highest_match_index = np.argmax(predictions[0])
@@ -44,7 +47,6 @@ def predict_fruit(img_file):
     confidence = float(predictions[0][highest_match_index] * 100)
     
     return fruit_name, round(confidence, 2)
-
 # ==========================================
 # 2. STREAMLIT UI & UPLOAD
 # ==========================================
